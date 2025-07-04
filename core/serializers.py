@@ -1,6 +1,6 @@
-# meu_site_pessoal/core/serializers.py
+# core/serializers.py
 from rest_framework import serializers
-from .models import AboutContent # Importe o modelo correto para o app 'core'
+from .models import AboutContent
 
 class AboutContentSerializer(serializers.ModelSerializer):
     class Meta:
