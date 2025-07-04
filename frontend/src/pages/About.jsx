@@ -1,11 +1,12 @@
 import React from 'react';
+import styles from './About.module.css';
 
 function About() {
   return (
-    <div>
-      <h1>Sobre Mim</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Sobre Mim</h1>
       {/* No futuro, os dados aqui virão da sua API Django /api/about/ */}
-      <p>Aqui vai a descrição sobre minha carreira, habilidades e experiências.</p>
+      <p className={styles.subtitle}>Aqui vai a descrição sobre minha carreira, habilidades e experiências.</p>
     </div>
   );
 }
