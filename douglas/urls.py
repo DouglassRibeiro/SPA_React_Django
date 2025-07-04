@@ -1,33 +1,17 @@
-"""
-URL configuration for douglas project.
+# douglas/urls.py
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-# meu_site_pessoal/urls.py
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework.routers import DefaultRouter
+from rest_framework import routers
 from projects.views import ProjectViewSet
-from core.views import AboutContentViewSet # Supondo que você criou um para AboutContent
+from core.views import AboutContentViewSet, index # <-- IMPORTE a view 'index'
 
-router = DefaultRouter()
+router = routers.DefaultRouter()
 router.register(r'projects', ProjectViewSet)
-router.register(r'about', AboutContentViewSet) # E um para AboutContent
+router.register(r'about', AboutContentViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)), # Suas APIs estarão em /api/projects, /api/about etc.
-    # Adicione aqui uma rota para sua página inicial que servirá o index.html do frontend
-    # path('', sua_view_do_index_html, name='home'),
+    path('api/', include(router.urls)),
+    path('', index, name='index'), # <-- ADICIONE ESTA LINHA
 ]
