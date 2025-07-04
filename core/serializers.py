@@ -1,7 +1,8 @@
+# meu_site_pessoal/core/serializers.py
 from rest_framework import serializers
-from .models import Project
+from .models import AboutContent # Importe o modelo correto para o app 'core'
 
-class ProjectSerializer(serializers.ModelSerializer):
+class AboutContentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Project
-        fields = '__all__' # ou especifique os campos que quer expor
+        model = AboutContent
+        fields = '__all__'

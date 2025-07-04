@@ -1,8 +1,8 @@
-# projects/views.py
+# meu_site_pessoal/core/views.py
 from rest_framework import viewsets
-from .models import Project
-from .serializers import ProjectSerializer
+from .models import AboutContent # Importe o modelo correto
+from .serializers import AboutContentSerializer # Importe o serializer correto
 
-class ProjectViewSet(viewsets.ModelViewSet):
-    queryset = Project.objects.all()
-    serializer_class = ProjectSerializer
+class AboutContentViewSet(viewsets.ModelViewSet):
+    queryset = AboutContent.objects.all()
+    serializer_class = AboutContentSerializer
