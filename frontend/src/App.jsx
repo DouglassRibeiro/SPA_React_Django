@@ -1,38 +1,44 @@
 // src/App.jsx
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import styles from "./App.module.css"; // 1. Importe o seu novo arquivo de estilos
 
 // Importe as páginas que você criou
-import Home from './pages/Home';
-import About from './pages/About';
-import Projects from './pages/Projects';
-import Contact from './pages/Contact';
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
     <Router>
-      <div>
-        {/* Isso será nosso menu de navegação */}
-        <nav>
-          <ul>
+      <div className={styles.menuClass}>
+        <nav className={styles.navContainer}>
+          {/* 3. E também à lista <ul> */}
+          <ul className={styles.navList}>
             <li>
-              <Link to="/">Início</Link>
+              <Link to="/" className={styles.navLink}>
+                Início
+              </Link>
             </li>
             <li>
-              <Link to="/about">Sobre</Link>
+              <Link to="/about" className={styles.navLink}>
+                Sobre
+              </Link>
             </li>
             <li>
-              <Link to="/projects">Projetos</Link>
+              <Link to="/projects" className={styles.navLink}>
+                Projetos
+              </Link>
             </li>
             <li>
-              <Link to="/contact">Contato</Link>
+              <Link to="/contact" className={styles.navLink}>
+                Contato
+              </Link>
             </li>
           </ul>
         </nav>
 
-        <hr />
-
-        {/* Aqui é onde a mágica acontece. O roteador vai renderizar o componente da rota correspondente */}
         <main>
           <Routes>
             <Route path="/" element={<Home />} />

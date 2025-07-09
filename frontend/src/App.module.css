@@ -1,0 +1,52 @@
+/* frontend/src/App.module.css */
+main {
+    display: block;
+}
+
+.menuClass {
+    display: flex;
+}
+
+.navContainer {
+    display: flex;
+    justify-content: center;
+    background-color: #3d3d3d;
+    width: 200px;
+}
+
+.navList {
+    list-style: none;
+    margin: 10vh 0 0 0;
+    padding: 0;
+    gap: 10.5rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: color 0.3s ease;
+}
+
+.navList li {
+    text-align: center;
+    border: rgba(255, 0, 0, 0) 2px solid;
+    transition: color 0.3s ease;
+}
+
+.navList li:hover {
+    border: red 2px solid;
+    border-radius: 20vh;
+}
+
+.navLink {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    color: #ffffff87;
+    transition: color 0.3s ease;
+}
+
+.navLink:hover {
+    color: #ffffff;
+    /* Muda a cor do link ao passar o mouse */
+}
