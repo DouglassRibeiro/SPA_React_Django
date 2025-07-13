@@ -12,9 +12,8 @@ import Contact from "./pages/Contact";
 function App() {
   return (
     <Router>
-      <div className={styles.menuClass}>
+      <div className={styles.menuContent}>
         <nav className={styles.navContainer}>
-          {/* 3. E também à lista <ul> */}
           <ul className={styles.navList}>
             <li>
               <Link to="/" className={styles.navLink}>
