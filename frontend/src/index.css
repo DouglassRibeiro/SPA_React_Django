@@ -6,7 +6,3 @@
   box-sizing: border-box;
   font-family: 'Montserrat', 'Open Sans';
 }
-
-body {
-    background-color: var(--dark-gray-color);
-}
