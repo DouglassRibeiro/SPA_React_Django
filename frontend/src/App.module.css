@@ -28,21 +28,17 @@ main {
     margin: 8vh 0;
 }
 
-.navList li a {
-    border-bottom: var(--grayish-white) 2px solid;
-    transition: 1s ease;
-}
-
 .navLink {
+    border-bottom: var(--grayish-white) 2px solid;
     text-decoration: none;
     font-weight: 500;
     font-size: 1.1rem;
     padding: 0.5rem;
     color: var(--grayish-white);
-    transition: 1s ease;
+    transition: 1s ease-in-out;
 }
 
-.navLink:hover {
+.navLink:hover, .active {
     border-bottom: var(--white) 2px solid;
     color: var(--white);
 }

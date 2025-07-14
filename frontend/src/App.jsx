@@ -1,6 +1,6 @@
 // src/App.jsx
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
 import styles from "./App.module.css"; // 1. Importe o seu novo arquivo de estilos
 
 // Importe as páginas que você criou
@@ -10,30 +10,33 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 
 function App() {
+  const getNavLinkClass = ({ isActive }) => {
+    return isActive ? `${styles.navLink} ${styles.active}` : styles.navLink;
+  };
   return (
     <Router>
       <div className={styles.menuContent}>
         <nav className={styles.navContainer}>
           <ul className={styles.navList}>
             <li>
-              <Link to="/" className={styles.navLink}>
+              <NavLink to="/" className={getNavLinkClass}>
                 Início
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/about" className={styles.navLink}>
+              <NavLink to="/about" className={getNavLinkClass}>
                 Sobre
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/projects" className={styles.navLink}>
+              <NavLink to="/projects" className={getNavLinkClass}>
                 Projetos
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/contact" className={styles.navLink}>
+              <NavLink to="/contact" className={getNavLinkClass}>
                 Contato
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>
