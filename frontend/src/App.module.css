@@ -42,3 +42,9 @@ main {
     border-bottom: var(--white) 2px solid;
     color: var(--white);
 }
+
+.mainContainer {
+  position: relative;
+  overflow: hidden; /* Garante que nada "vaze" durante a animação */
+}
+
