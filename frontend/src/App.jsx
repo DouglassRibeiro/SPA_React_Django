@@ -1,8 +1,8 @@
-// src/App.jsx
+// src/App.jsx - VERSÃO FINAL COM A CORREÇÃO nodeRef
 
-import React from "react";
+import React, { useRef } from "react"; // 1. Importe o 'useRef'
 import { BrowserRouter as Router, Routes, Route, NavLink, useLocation } from "react-router-dom";
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { SwitchTransition, CSSTransition } from 'react-transition-group'; // 2. Importe o SwitchTransition
 import styles from "./App.module.css";
 
 // Suas páginas
@@ -11,20 +11,15 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 
-// Array com as configurações das rotas para facilitar o mapeamento
-const routes = [
-  { path: '/', name: 'Home', Component: Home },
-  { path: '/about', name: 'About', Component: About },
-  { path: '/projects', name: 'Projects', Component: Projects },
-  { path: '/contact', name: 'Contact', Component: Contact }
-];
-
 function AppContent() {
   const location = useLocation();
 
   const getNavLinkClass = ({ isActive }) => {
     return isActive ? `${styles.navLink} ${styles.active}` : styles.navLink;
   };
+
+  // 3. Criamos uma referência para o nó (o div) que será animado
+  const nodeRef = useRef(null);
 
   return (
     <div className={styles.menuContent}>
@@ -37,27 +32,28 @@ function AppContent() {
         </ul>
       </nav>
 
-      {/* Container principal para as páginas */}
-      <div className={styles.pageContainer}>
-        <TransitionGroup>
-          {/* A cada mudança de rota, uma nova CSSTransition será renderizada */}
+      <main className={styles.mainContainer}>
+        {/* 4. Usamos SwitchTransition para garantir trocas limpas */}
+        <SwitchTransition>
           <CSSTransition
-            key={location.key}
+            key={location.pathname} // Usar pathname é mais estável aqui
+            nodeRef={nodeRef} // 5. Passamos a referência aqui
             timeout={500}
             classNames="page"
-            unmountOnExit // Importante: remove o componente do DOM após a saída
+            unmountOnExit
           >
-            {/* O 'div' abaixo será o elemento que receberá as classes de animação */}
-            <div className="page">
+            {/* 6. Adicionamos a ref ao div que envolve as rotas */}
+            <div ref={nodeRef} className="page-container">
               <Routes location={location}>
-                {routes.map(({ path, Component }) => (
-                  <Route key={path} path={path} element={<Component />} />
-                ))}
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/contact" element={<Contact />} />
               </Routes>
             </div>
           </CSSTransition>
-        </TransitionGroup>
-      </div>
+        </SwitchTransition>
+      </main>
     </div>
   );
 }
