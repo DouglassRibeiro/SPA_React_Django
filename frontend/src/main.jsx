@@ -1,11 +1,11 @@
+// src/Main.jsx (com o StrictMode desativado para teste)
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
-import './Main.index.css';
+import './main_styles.css';
 
-// AQUI ESTÁ O CONTROLE!
+// Apenas removemos as tags <React.StrictMode>
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <App />
 );
