@@ -1,8 +1,14 @@
 // src/App.jsx - VERSÃO FINAL COM A CORREÇÃO nodeRef
 
-import React, { useRef } from "react"; // 1. Importe o 'useRef'
-import { BrowserRouter as Router, Routes, Route, NavLink, useLocation } from "react-router-dom";
-import { SwitchTransition, CSSTransition } from 'react-transition-group'; // 2. Importe o SwitchTransition
+import React, { useState, useRef } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  NavLink,
+  useLocation,
+} from "react-router-dom";
+import { SwitchTransition, CSSTransition } from "react-transition-group"; // 2. Importe o SwitchTransition
 import styles from "./App.module.css";
 
 // Suas páginas
@@ -13,6 +19,15 @@ import Contact from "./pages/Contact";
 
 function AppContent() {
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   const getNavLinkClass = ({ isActive }) => {
     return isActive ? `${styles.navLink} ${styles.active}` : styles.navLink;
@@ -22,18 +37,49 @@ function AppContent() {
   const nodeRef = useRef(null);
 
   return (
-    <div className={styles.menuContent}>
+    <div className={`${styles.menuContent} ${ isMenuOpen ? styles.menuVisible :""}`}>
+      <button className={styles.hamburgerButton} onClick={toggleMenu}>
+        ☰
+      </button>
+
       <nav className={styles.navContainer}>
         <ul className={styles.navList}>
-          <li><NavLink to="/" className={getNavLinkClass}>Início</NavLink></li>
-          <li><NavLink to="/about" className={getNavLinkClass}>Sobre</NavLink></li>
-          <li><NavLink to="/projects" className={getNavLinkClass}>Projetos</NavLink></li>
-          <li><NavLink to="/contact" className={getNavLinkClass}>Contato</NavLink></li>
+          <li>
+            <NavLink to="/" className={getNavLinkClass} onClick={closeMenu}>
+              Início
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/about"
+              className={getNavLinkClass}
+              onClick={closeMenu}
+            >
+              Sobre
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/projects"
+              className={getNavLinkClass}
+              onClick={closeMenu}
+            >
+              Projetos
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/contact"
+              className={getNavLinkClass}
+              onClick={closeMenu}
+            >
+              Contato
+            </NavLink>
+          </li>
         </ul>
       </nav>
 
-      <main className={styles.mainContainer}>
-        {/* 4. Usamos SwitchTransition para garantir trocas limpas */}
+      <main className={`${styles.mainContainer} ${ isMenuOpen ? styles.backdrop : ""}`} onClick={toggleMenu}> 
         <SwitchTransition>
           <CSSTransition
             key={location.pathname} // Usar pathname é mais estável aqui
@@ -42,7 +88,6 @@ function AppContent() {
             classNames="page"
             unmountOnExit
           >
-            {/* 6. Adicionamos a ref ao div que envolve as rotas */}
             <div ref={nodeRef} className="page-container">
               <Routes location={location}>
                 <Route path="/" element={<Home />} />
