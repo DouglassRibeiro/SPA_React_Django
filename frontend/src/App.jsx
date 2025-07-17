@@ -37,15 +37,17 @@ function AppContent() {
   const nodeRef = useRef(null);
 
   return (
-    <div className={`${styles.menuContent} ${ isMenuOpen ? styles.menuVisible :""}`}>
+    <div className={`${styles.menuContent} ${ isMenuOpen ? styles.menuVisible : ""}`}>
       <button className={styles.hamburgerButton} onClick={toggleMenu}>
         ☰
       </button>
 
+      <div className={styles.backdrop}></div>
+
       <nav className={styles.navContainer}>
-        <ul className={styles.navList}>
+        <ul className={styles.navList} onClick={closeMenu}>
           <li>
-            <NavLink to="/" className={getNavLinkClass} onClick={closeMenu}>
+            <NavLink to="/" className={getNavLinkClass}>
               Início
             </NavLink>
           </li>
@@ -53,7 +55,6 @@ function AppContent() {
             <NavLink
               to="/about"
               className={getNavLinkClass}
-              onClick={closeMenu}
             >
               Sobre
             </NavLink>
@@ -62,7 +63,6 @@ function AppContent() {
             <NavLink
               to="/projects"
               className={getNavLinkClass}
-              onClick={closeMenu}
             >
               Projetos
             </NavLink>
@@ -71,7 +71,6 @@ function AppContent() {
             <NavLink
               to="/contact"
               className={getNavLinkClass}
-              onClick={closeMenu}
             >
               Contato
             </NavLink>
@@ -79,7 +78,7 @@ function AppContent() {
         </ul>
       </nav>
 
-      <main className={`${styles.mainContainer} ${ isMenuOpen ? styles.backdrop : ""}`} onClick={toggleMenu}> 
+      <main className={styles.mainContainer}>
         <SwitchTransition>
           <CSSTransition
             key={location.pathname} // Usar pathname é mais estável aqui
