@@ -7,6 +7,8 @@ main {
 
 .menuContent {
     display: flex;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .navContainer {
@@ -46,8 +48,12 @@ main {
 
 .mainContainer {
     position: relative;
-    overflow: hidden;
-    /* Garante que nada "vaze" durante a animação */
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.mainContainer::-webkit-scrollbar {
+  display: none;
 }
 
 .hamburgerButton {
@@ -73,7 +79,6 @@ main {
         height: 100vh;
         z-index: 1000;
         transform: translateX(-100%);
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
         transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
@@ -84,14 +89,15 @@ main {
     .hamburgerButton {
         display: block;
         position: fixed;
-        top: 15px;
-        left: 15px;
+        top: 1lvh;
+        left: 1lvh;
         z-index: 1001;
         background: none;
         color: var(--white);
         width: 45px;
         height: 45px;
         font-size: 1.5rem;
+        border: none;
     }
 
     .backdrop {
@@ -104,34 +110,28 @@ main {
         background-color: rgba(0, 0, 0, 0.3);
         animation: fadeIn 1s ease;
     }
-    
+
     .backdrop.closing {
         animation: fadeOut 1s ease;
     }
 
-    /* Correção em App.module.css */
-
     @keyframes fadeIn {
         from {
             opacity: 0;
-            /* Correto: começa transparente */
         }
 
         to {
             opacity: 1;
-            /* Correto: termina opaco */
         }
     }
 
     @keyframes fadeOut {
         from {
             opacity: 1;
-            /* Correto: começa opaco */
         }
         
         to {
             opacity: 0;
-            /* Correto: termina transparente */
         }
     }
 }
