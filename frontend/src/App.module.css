@@ -66,7 +66,6 @@ main {
 
 @media (max-width: 768px) {
 
-    /* Em telas pequenas, o menu fica fora da tela por padrão */
     .navContainer {
         position: fixed;
         top: 0;
@@ -78,56 +77,61 @@ main {
         transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
-    /* A classe .menuVisible é adicionada via JS para mostrar o menu */
     .menuVisible .navContainer {
         transform: translateX(0);
     }
 
-    /* O botão hambúrguer agora fica visível */
     .hamburgerButton {
         display: block;
         position: fixed;
         top: 15px;
         left: 15px;
         z-index: 1001;
-        background: var(--gray-dark);
+        background: none;
         color: var(--white);
-        border: 1px solid var(--white);
-        border-radius: 5px;
         width: 45px;
         height: 45px;
         font-size: 1.5rem;
     }
 
-    /* Em App.module.css, dentro de @media (max-width: 768px) */
-
     .backdrop {
         position: fixed;
-        /* Cobre toda a tela */
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-        /* Fundo preto com 50% de opacidade */
-
-        /* Ordem de empilhamento:
-       Fica acima do conteúdo (z-index padrão é 0 ou auto)
-       e abaixo do menu e do botão (que têm z-index 1000 e 1001) */
         z-index: 999;
-
-        /* Animação de fade-in */
-        animation: fadeIn 0.4s ease;
+        background-color: rgba(0, 0, 0, 0.3);
+        animation: fadeIn 1s ease;
+    }
+    
+    .backdrop.closing {
+        animation: fadeOut 1s ease;
     }
 
-    /* Criamos uma animação @keyframes para o fade-in */
+    /* Correção em App.module.css */
+
     @keyframes fadeIn {
         from {
             opacity: 0;
+            /* Correto: começa transparente */
         }
 
         to {
             opacity: 1;
+            /* Correto: termina opaco */
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+            /* Correto: começa opaco */
+        }
+        
+        to {
+            opacity: 0;
+            /* Correto: termina transparente */
         }
     }
 }

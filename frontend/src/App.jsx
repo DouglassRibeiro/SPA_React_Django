@@ -21,9 +21,19 @@ function AppContent() {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const [isBackdropVisible, setIsBackdropVisible] = useState(false);
+
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+    // Se o menu está prestes a abrir
+    if (!isMenuOpen) {
+      setIsMenuOpen(true);
+      setIsBackdropVisible(true);
+    } else { // Se o menu está prestes a fechar
+      setIsMenuOpen(false);
+      setIsBackdropVisible(false);
+      // NÃO mudamos o isBackdropVisible aqui diretamente
+    }
+  }
 
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -42,7 +52,9 @@ function AppContent() {
         ☰
       </button>
 
-      <div className={styles.backdrop}></div>
+      {isBackdropVisible && (
+      <div className={`${styles.backdrop} ${!isMenuOpen ? styles.closing : ""}`} onAnimationEnd={() => { if (!isMenuOpen) setIsBackdropVisible(false);}}></div>
+      )}
 
       <nav className={styles.navContainer}>
         <ul className={styles.navList} onClick={closeMenu}>
