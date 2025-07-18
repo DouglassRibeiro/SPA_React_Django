@@ -49,6 +49,7 @@ main {
 .mainContainer {
     position: relative;
     overflow-y: auto;
+    flex: 1;
     scrollbar-width: none;
 }
 
