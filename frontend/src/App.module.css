@@ -13,7 +13,8 @@ main {
 
 .navContainer {
     background-color: var(--gray-dark);
-    width: 35vh;
+    width: 15rem;
+    min-width: 10rem;
 }
 
 .navList {
