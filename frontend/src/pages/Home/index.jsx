@@ -2,31 +2,26 @@
 import React from "react";
 import styles from "./Home.module.css"; // 1. Importe o arquivo de estilos
 import profileImage from "../../assets/profile-photo.png";
+import ReflectivePhrase  from '../../components/ReflectivePhrase';
 
 function Home() {
   return (
-    <div className={styles.homeContainer}>
+    <><div className={styles.homeContainer}>
       <div className={styles.textContainer}>
-        <div className={styles.textContainer}></div>
         <h1 className={styles.title}>
           Como vai, eu sou o <strong className={styles.red}>Douglas</strong>
         </h1>
         <p className={styles.subtitle}>
-          Sou um desenvolvedor apaixonado por novas tecnologias.
-        </p>
-        <p className={styles.subtitle}>
-          Curto explorar bibliotecas e lingagens de
+          Sou um desenvolvedor sempre em busca de novas tecnologias.
         </p>
       </div>
-
       <div className={styles.imageContainer}>
         <img
           src={profileImage}
-          alt="Douglas - Developer"
-          className={styles.profileImage}
-        />
+          alt="Image - Douglas"
+          className={styles.profileImage} />
       </div>
-    </div>
+    </div><ReflectivePhrase /></>
   );
 }
 

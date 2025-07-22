@@ -14,6 +14,8 @@ body {
   color: var(--white);
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  text-align: left;
+  position: top;
 }
 
 .red {
@@ -27,8 +29,6 @@ body {
 
 .homeContainer {
   display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 2rem;
   gap: 2rem;
   min-height: 80vh;
@@ -42,7 +42,7 @@ body {
 .profileImage {
   width: 350px;
   object-fit: cover;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 95%);
 }
 
 @media (max-width: 750px) {

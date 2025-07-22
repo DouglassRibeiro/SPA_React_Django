@@ -64,9 +64,7 @@ main {
 
 .pageContainer {
     position: relative;
-    /* O elemento pai precisa ser relativo */
     flex: 1;
-    /* Faz com que o container ocupe o espaço restante */
     width: 100%;
 }
 
