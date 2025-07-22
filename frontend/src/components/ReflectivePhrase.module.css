@@ -1,12 +1,31 @@
 .phraseContainer {
-  padding: 2rem;
-  text-align: center;
-  margin-top: 2rem;
-  border-top: 1px solid var(--grayish-white);
+    height: 10vh;
 }
 
 .phraseText {
-  color: var(--grayish-white);
-  font-style: italic;
-  font-size: 1.1rem;
+    margin: 2rem;
+    text-align: right;
+    color: var(--grayish-white);
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+.fadeEnter {
+    opacity: 0;
+}
+
+.fadeEnterActive {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1000ms, transform 1000ms;
+}
+
+.fadeExit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fadeExitActive {
+    opacity: 0;
+    transition: opacity 1000ms, transform 1000ms;
 }
