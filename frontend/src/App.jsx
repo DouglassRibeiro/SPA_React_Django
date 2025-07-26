@@ -11,7 +11,11 @@ import {
 import { SwitchTransition, CSSTransition } from "react-transition-group"; // 2. Importe o SwitchTransition
 import styles from "./App.module.css";
 
-// Suas páginas
+import homeIcon from "./assets/icons/home.svg";
+import aboutIcon from "./assets/icons/about.svg";
+import projectsIcon from "./assets/icons/projectes.svg";
+import contactIcon from "./assets/icons/contact.svg";
+
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
@@ -24,16 +28,14 @@ function AppContent() {
   const [isBackdropVisible, setIsBackdropVisible] = useState(false);
 
   const toggleMenu = () => {
-    // Se o menu está prestes a abrir
     if (!isMenuOpen) {
       setIsMenuOpen(true);
       setIsBackdropVisible(true);
-    } else { // Se o menu está prestes a fechar
+    } else {
       setIsMenuOpen(false);
       setIsBackdropVisible(false);
-      // NÃO mudamos o isBackdropVisible aqui diretamente
     }
-  }
+  };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -43,48 +45,59 @@ function AppContent() {
     return isActive ? `${styles.navLink} ${styles.active}` : styles.navLink;
   };
 
-  // 3. Criamos uma referência para o nó (o div) que será animado
   const nodeRef = useRef(null);
 
   return (
-    <div className={`${styles.menuContent} ${ isMenuOpen ? styles.menuVisible : ""}`}>
+    <div
+      className={`${styles.menuContent} ${
+        isMenuOpen ? styles.menuVisible : ""
+      }`}
+    >
       <button className={styles.hamburgerButton} onClick={toggleMenu}>
         ☰
       </button>
 
       {isBackdropVisible && (
-      <div className={`${styles.backdrop} ${!isMenuOpen ? styles.closing : ""}`} onAnimationEnd={() => { if (!isMenuOpen) setIsBackdropVisible(false);}}></div>
+        <div
+          className={`${styles.backdrop} ${!isMenuOpen ? styles.closing : ""}`}
+          onAnimationEnd={() => {
+            if (!isMenuOpen) setIsBackdropVisible(false);
+          }}
+        ></div>
       )}
 
       <nav className={styles.navContainer}>
         <ul className={styles.navList} onClick={closeMenu}>
           <li>
             <NavLink to="/" className={getNavLinkClass}>
-              Início
+              <span className={styles.navItenContent}>
+                <img src={homeIcon} alt="Ínicio" className={styles.navIcon} />
+                Início
+              </span>
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="/about"
-              className={getNavLinkClass}
-            >
-              Sobre
+            <NavLink to="/about" className={getNavLinkClass}>
+              <span className={styles.navItenContent}>
+                <img src={aboutIcon} alt="Sobre" className={styles.navIcon} />
+                Sobre
+              </span>
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="/projects"
-              className={getNavLinkClass}
-            >
-              Projetos
+            <NavLink to="/projects" className={getNavLinkClass}>
+              <span className={styles.navItenContent}>
+                <img src={projectsIcon} alt="Projetos" className={styles.navIcon} />
+                Projetos
+              </span>
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="/contact"
-              className={getNavLinkClass}
-            >
-              Contato
+            <NavLink to="/contact" className={getNavLinkClass}>
+              <span className={styles.navItenContent}>
+                <img src={contactIcon} alt="Contato" className={styles.navIcon} />
+                Contato
+              </span>
             </NavLink>
           </li>
         </ul>
@@ -93,8 +106,8 @@ function AppContent() {
       <main className={styles.mainContainer}>
         <SwitchTransition>
           <CSSTransition
-            key={location.pathname} // Usar pathname é mais estável aqui
-            nodeRef={nodeRef} // 5. Passamos a referência aqui
+            key={location.pathname}
+            nodeRef={nodeRef}
             timeout={500}
             classNames="page"
             unmountOnExit

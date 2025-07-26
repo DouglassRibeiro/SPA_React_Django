@@ -68,6 +68,23 @@ main {
     width: 100%;
 }
 
+.navIcon {
+  width: 24px;  /* Defina a largura desejada */
+  height: 2vh; /* Defina a altura desejada */
+  object-fit: contain; /* Garante que a imagem caiba no espaço sem distorcer */
+}
+
+/* Certifique-se de que a classe para alinhar o conteúdo existe */
+.navItemContent {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem; /* Espaço entre o ícone e o texto */
+  padding-left: 2rem;
+}
+
+/* E que o alinhamento do <li> esteja correto */
+
+
 /* --- ESTILOS RESPONSIVOS PARA TELAS MENORES --- */
 
 @media (max-width: 768px) {

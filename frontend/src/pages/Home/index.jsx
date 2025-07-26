@@ -14,6 +14,8 @@ function Home() {
         <p className={styles.subtitle}>
           Sou um desenvolvedor sempre em busca de novas tecnologias.
         </p>
+        <div className={styles.teste}>
+        </div>
       </div>
       <div className={styles.imageContainer}>
         <img
