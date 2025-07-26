@@ -4,9 +4,14 @@ import styles from "./Home.module.css"; // 1. Importe o arquivo de estilos
 import profileImage from "../../assets/profile-photo.png";
 import ReflectivePhrase  from '../../components/ReflectivePhrase';
 
+import homeIcon from '../../assets/icons/home.svg';
+
 function Home() {
   return (
-    <><div className={styles.homeContainer}>
+    <>
+    <title>Douglas | Inicio</title>
+    <link rel="icon" type="image/svg+xml" href={homeIcon}/>
+    <div className={styles.homeContainer}>
       <div className={styles.textContainer}>
         <h1 className={styles.title}>
           Como vai, eu sou o <strong className={styles.red}>Douglas</strong>

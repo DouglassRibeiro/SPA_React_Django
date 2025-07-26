@@ -37,7 +37,8 @@ main {
     font-weight: 500;
     font-size: 1.1rem;
     padding: 0.5rem;
-    color: var(--grayish-white);
+    opacity: 0.5;
+    color: var(--white);
     transition: 1s ease-in-out;
 }
 
@@ -45,7 +46,9 @@ main {
 .active {
     border-bottom: var(--white) 2px solid;
     color: var(--white);
+    opacity: 1;
 }
+
 
 .mainContainer {
     position: relative;
@@ -55,7 +58,7 @@ main {
 }
 
 .mainContainer::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .hamburgerButton {
@@ -69,20 +72,17 @@ main {
 }
 
 .navIcon {
-  width: 24px;  /* Defina a largura desejada */
-  height: 2vh; /* Defina a altura desejada */
-  object-fit: contain; /* Garante que a imagem caiba no espaço sem distorcer */
+    width: 24px;
+    height: 2vh;
+    object-fit: contain;
 }
 
-/* Certifique-se de que a classe para alinhar o conteúdo existe */
 .navItemContent {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem; /* Espaço entre o ícone e o texto */
-  padding-left: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding-left: 2rem;
 }
-
-/* E que o alinhamento do <li> esteja correto */
 
 
 /* --- ESTILOS RESPONSIVOS PARA TELAS MENORES --- */
@@ -146,7 +146,7 @@ main {
         from {
             opacity: 1;
         }
-        
+
         to {
             opacity: 0;
         }
