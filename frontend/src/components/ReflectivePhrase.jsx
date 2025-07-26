@@ -6,10 +6,10 @@ import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import styles from './ReflectivePhrase.module.css';
 
 const phrases = [
-  "A única maneira de fazer um ótimo trabalho é amar o que você faz.",
-  "O sucesso é a soma de pequenos esforços repetidos dia após dia.",
-  "A persistência realiza o impossível.",
-  "O futuro pertence àqueles que acreditam na beleza de seus sonhos.",
+  '"A única maneira de fazer um ótimo trabalho é amar o que você faz." - SteveJobs',
+  '"O sucesso é a soma de pequenos esforços repetidos dia após dia." - Robert Collier',
+  '"A persistência realiza o impossível." - Provérbio Chinês',
+  '"O futuro pertence àqueles que acreditam na beleza de seus sonhos." - Eleanor Roosevelt',
 ];
 
 function ReflectivePhrase() {

@@ -23,12 +23,10 @@ main {
     justify-content: center;
     list-style: none;
     flex-direction: column;
-    transition: 0.3s ease;
-}
-
-.navList li {
-    text-align: center;
-    margin: 8vh 0;
+    li {
+        text-align: center;
+        margin: 8vh 0;
+    }
 }
 
 .navLink {
@@ -39,13 +37,15 @@ main {
     padding: 0.5rem;
     opacity: 0.5;
     color: var(--white);
-    transition: 1s ease-in-out;
+    transition: 0.3s ease-in-out;
+    &:hover {
+        border-bottom: var(--white) 3px solid;
+        color: var(--white);
+        font-weight: 700;
+    }
 }
 
-.navLink:hover,
 .active {
-    border-bottom: var(--white) 2px solid;
-    color: var(--white);
     opacity: 1;
 }
 
@@ -55,11 +55,11 @@ main {
     overflow-y: auto;
     flex: 1;
     scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
-.mainContainer::-webkit-scrollbar {
-    display: none;
-}
 
 .hamburgerButton {
     display: none;
@@ -125,11 +125,11 @@ main {
         height: 100%;
         z-index: 999;
         background-color: rgba(0, 0, 0, 0.3);
-        animation: fadeIn 1s ease;
+        animation: 1s ease;
     }
 
     .backdrop.closing {
-        animation: fadeOut 1s ease;
+        animation: 1s ease;
     }
 
     @keyframes fadeIn {
