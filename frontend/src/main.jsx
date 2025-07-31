@@ -1,11 +1,14 @@
-// src/Main.jsx (com o StrictMode desativado para teste)
-
+// src/main.jsx - Correto
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { HashRouter } from 'react-router-dom'; // 1. Importe o HashRouter
 import App from './App.jsx';
 import './main_styles.css';
 
-// Apenas removemos as tags <React.StrictMode>
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <App />
+  <React.StrictMode>
+    <HashRouter>  {/* 2. Envolva o <App/> com o HashRouter aqui */}
+      <App />
+    </HashRouter>
+  </React.StrictMode>
 );

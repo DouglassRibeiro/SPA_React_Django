@@ -2,7 +2,8 @@
 
 import React, { useState, useRef } from "react";
 import {
-  BrowserRouter as Router,
+  //BrowserRouter as Router,
+  //HashRouter as Router,
   Routes,
   Route,
   NavLink,
@@ -128,11 +129,7 @@ function AppContent() {
 }
 
 function App() {
-  return (
-    <Router>
-      <AppContent />
-    </Router>
-  );
+  return <AppContent />;
 }
 
 export default App;
