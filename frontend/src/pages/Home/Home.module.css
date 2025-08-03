@@ -32,21 +32,99 @@ body {
   padding: 2rem;
   gap: 2rem;
   min-height: 44rem;
+  & > .textContainer {
+    flex: 1;
+    width: 600px;
+  }
 }
 
-.textContainer {
-  flex: 1;
-  width: 600px;
-}
-
-.profileImage {
-  width: 22rem;
-  object-fit: cover;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 95%);
-}
 
 .imageContainer {
   min-height: auto;
+  & > .profileImage {
+    width: 22rem;
+    object-fit: cover;
+    -webkit-mask-image: linear-gradient(to right,
+        transparent 0%,
+        black 15%,
+        black 85%,
+        transparent 100%);
+    mask-image: linear-gradient(to right,
+        transparent 0%,
+        black 15%,
+        black 85%,
+        transparent 100%);
+  }
+}
+
+
+
+.iconMarquee{
+  padding-top: 200px;
+  margin-top: 3rem;
+  overflow: hidden; /* Essencial: esconde o que está fora da "janela" */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+    & > .marqueeRow {
+      display: flex;
+      width: fit-content; /* Largura baseada no conteúdo */
+      animation: marqueeAnimation 60s linear infinite;
+      margin-bottom: 1rem;
+      &:hover {
+        animation-play-state: paused; /* Pausa a animação da linha ao passar o mouse */
+      }
+      &.reverse {
+      animation-name: marqueeAnimationReverse;
+    }
+    .techIcon {
+      height: 50px; /* Ajuste o tamanho conforme preferir */
+      margin: 0 1rem;
+      transition: transform 0.3s ease; /* Transição suave para o hover */
+      &:hover.techIcon {
+        transform: scale(1.3); /* Aumenta o ícone específico */
+      }
+    }
+  }
+
+
+}
+
+
+
+
+/* 6. A DEFINIÇÃO DAS ANIMAÇÕES (@keyframes) */
+
+/* Animação padrão (direita para esquerda) */
+@keyframes marqueeAnimation {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    /* Move para a esquerda pela metade da largura total (já que duplicamos) */
+    transform: translateX(-50%);
+  }
+}
+
+/* Animação reversa (esquerda para direita) */
+@keyframes marqueeAnimationReverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
 }
 
 @media (max-width: 750px) {

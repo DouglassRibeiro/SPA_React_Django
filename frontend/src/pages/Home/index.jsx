@@ -41,8 +41,23 @@ function Home() {
           <p className={styles.subtitle}>
             Sou um desenvolvedor sempre em busca de novas tecnologias.
           </p>
-          <div className={styles.iconMarques}>
-            {techIcons.map(icon => (<img key = {icon.id} src={icon.src} alt = {icon.alt} className={styles.techIcon}/>))}
+          <div className={styles.iconMarquee}>
+            <div className={styles.marqueeRow}>
+              {techIcons.map(icon => <a href="#" key={'${icon.id}-1'} className={styles.iconLink}><img src={icon.src} alt={icon.alt} className={styles.techIcon}/></a>)}
+              {techIcons.map(icon => <a href="#" key={'${icon.id}-2'} className={styles.iconLink}><img src={icon.src} alt={icon.alt} className={styles.techIcon}/></a>)}
+            </div>
+            <div className={`${styles.marqueeRow} ${styles.reverse}`}>
+              {techIcons.map(icon => <a href="#" key={`${icon.id}-3`} className={styles.iconLink}><img src={icon.src} alt={icon.alt} className={styles.techIcon}/></a>)}
+              {techIcons.map(icon => <a href="#" key={`${icon.id}-4`} className={styles.iconLink}><img src={icon.src} alt={icon.alt} className={styles.techIcon}/></a>)}
+            </div>
+            <div className={styles.marqueeRow}>
+              {techIcons.map(icon => <a href="#" key={'${icon.id}-1'} className={styles.iconLink}><img src={icon.src} alt={icon.alt} className={styles.techIcon}/></a>)}
+              {techIcons.map(icon => <a href="#" key={'${icon.id}-2'} className={styles.iconLink}><img src={icon.src} alt={icon.alt} className={styles.techIcon}/></a>)}
+            </div>
+            <div className={`${styles.marqueeRow} ${styles.reverse}`}>
+              {techIcons.map(icon => <a href="#" key={`${icon.id}-3`} className={styles.iconLink}><img src={icon.src} alt={icon.alt} className={styles.techIcon}/></a>)}
+              {techIcons.map(icon => <a href="#" key={`${icon.id}-4`} className={styles.iconLink}><img src={icon.src} alt={icon.alt} className={styles.techIcon}/></a>)}
+            </div>
           </div>
         </div>
         <div className={styles.imageContainer}>
