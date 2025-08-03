@@ -31,18 +31,22 @@ body {
   display: flex;
   padding: 2rem;
   gap: 2rem;
-  min-height: 80vh;
+  min-height: 44rem;
 }
 
 .textContainer {
   flex: 1;
-  max-width: 600px;
+  width: 600px;
 }
 
 .profileImage {
-  width: 350px;
+  width: 22rem;
   object-fit: cover;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 95%);
+}
+
+.imageContainer {
+  min-height: auto;
 }
 
 @media (max-width: 750px) {
