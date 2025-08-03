@@ -36,7 +36,7 @@ function Home() {
       <div className={styles.homeContainer}>
         <div className={styles.textContainer}>
           <h1 className={styles.title}>
-            Como vai, eu sou o <strong className={styles.red}>Douglas</strong>
+            Como vai, eu sou o <strong className={styles.red}>TESTE</strong>
           </h1>
           <p className={styles.subtitle}>
             Sou um desenvolvedor sempre em busca de novas tecnologias.
