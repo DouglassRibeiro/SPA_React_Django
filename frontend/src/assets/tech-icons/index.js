@@ -4,6 +4,7 @@ import iconAngular from './iconAngular.svg';
 import iconAzureSqlDataBase from './iconAzureSqlDataBase.svg';
 import iconBlenderIcon from './iconBlenderIcon.svg';
 import iconCMoreMoreTraced from './iconCMoreMoreTraced.svg';
+import iconCss from './iconCss.svg';
 import iconDataBaseGlobalityVelocity from './iconDataBaseGlobalityVelocity.svg';
 import iconDjango from './iconDjango.svg';
 import iconGit from './iconGit.svg';
@@ -26,6 +27,7 @@ export {
     iconAzureSqlDataBase,
     iconBlenderIcon,
     iconCMoreMoreTraced,
+    iconCss,
     iconDataBaseGlobalityVelocity,
     iconDjango,
     iconGit,
