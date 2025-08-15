@@ -6,6 +6,7 @@ import ReflectivePhrase from "../../components/ReflectivePhrase";
 import homeIcon from "../../assets/icons/home.svg";
 import * as techIconsList from "../../assets/tech-icons/";
 
+
 const techIcons = [
   { id: "3dBox", src: techIconsList.icon3dBox, alt: "3dBox" },
   {

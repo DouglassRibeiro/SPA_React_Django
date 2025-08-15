@@ -1,6 +1,6 @@
 // src/App.jsx - VERSÃO FINAL COM A CORREÇÃO nodeRef
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   //BrowserRouter as Router,
   //HashRouter as Router,
@@ -25,8 +25,12 @@ import Contact from "./pages/Contact";
 function AppContent() {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const [isBackdropVisible, setIsBackdropVisible] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   const toggleMenu = () => {
     if (!isMenuOpen) {
@@ -52,7 +56,7 @@ function AppContent() {
     <div
       className={`${styles.menuContent} ${
         isMenuOpen ? styles.menuVisible : ""
-      }`}
+      } ${isLoaded ? styles.loaded : ""}`} //loaded - pré carregamento mais suave
     >
       <button className={styles.hamburgerButton} onClick={toggleMenu}>
         ☰

@@ -10,6 +10,7 @@ const phrases = [
   '"O sucesso é a soma de pequenos esforços repetidos dia após dia." - Robert Collier',
   '"A persistência realiza o impossível." - Provérbio Chinês',
   '"O futuro pertence àqueles que acreditam na beleza de seus sonhos." - Eleanor Roosevelt',
+  '"A inovação distingui um líder de um seguidor." - Steve Jobs',
 ];
 
 function ReflectivePhrase() {

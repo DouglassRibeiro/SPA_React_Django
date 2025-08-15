@@ -4,7 +4,6 @@
   display: flex;
   padding: 2rem;
   gap: 2rem;
-  min-height: 44rem;
 
   .title {
     color: var(--white);
@@ -23,14 +22,14 @@
     font-size: 1.2rem;
   }
 
-  &>.textContainer {
+  .textContainer {
     flex: 1;
     width: 600px;
   }
 
-  &>.imageContainer {
+  .imageContainer {
     min-height: auto;
-
+    
     &>.profileImage {
       width: 22rem;
       object-fit: cover;
@@ -44,7 +43,7 @@
     margin-left: 1rem;
     max-inline-size: 40rem;
     overflow: hidden;
-    /* Essencial: esconde o que está fora da "janela" */
+
     -webkit-mask-image: linear-gradient(to right,
         transparent 0%,
         black 15%,
@@ -56,32 +55,31 @@
         black 85%,
         transparent 100%);
 
-    &>.marqueeRow {
+    *&>.marqueeRow {
       display: flex;
       width: fit-content;
-      /* Largura baseada no conteúdo */
-      animation: marqueeAnimation 60s linear infinite;
+      animation: marqueeAnimation 120s linear infinite;
       margin-bottom: 4rem;
-
       &:hover {
         animation-play-state: paused;
       }
-
-      &.reverse {
-        animation-name: marqueeAnimationReverse;
+      
+      &.reverse
+      {
+        animation: marqueeAnimationReverse 120s linear infinite;
+        &:hover {
+          animation-play-state: paused;
+        }
       }
     }
 
     .techIcon {
       height: 50px;
-      /* Ajuste o tamanho conforme preferir */
       margin: 0 1rem;
       transition: transform 0.3s ease;
 
-      /* Transição suave para o hover */
       &:hover {
         transform: scale(1.3);
-        /* Aumenta o ícone específico */
       }
     }
   }

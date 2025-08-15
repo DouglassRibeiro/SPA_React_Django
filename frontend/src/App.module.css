@@ -9,6 +9,11 @@ main {
     display: flex;
     height: 100vh;
     overflow: hidden;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    &.loaded {
+        opacity: 1;
+    }
 }
 
 .navContainer {
@@ -23,7 +28,7 @@ main {
     justify-content: center;
     list-style: none;
     flex-direction: column;
-    li {
+    &>li {
         text-align: center;
         margin: 8vh 0;
     }
